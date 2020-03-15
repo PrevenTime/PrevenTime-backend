@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  preventime_sql_db:
+    image: postgres
+    restart: always
+    ports:
+      - "5444:5432"
+    environment:
+      POSTGRES_PASSWORD: c0c0l0c0
+      POSTGRES_USER: preventime

@@ -20,7 +20,6 @@ jobs:
       - name: Build and Upload Docker Images
         run: |
           mvn -T 1C jib:build \
-          -pl preventime-platform \
           -Djib.to.auth.username=${{ secrets.DOCKER_USER }} \
           -Djib.to.auth.password="${{ secrets.DOCKER_PASS }}" \
           -Djib.httpTimeout=120000

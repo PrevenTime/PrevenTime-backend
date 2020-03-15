@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+      - name: Package Java
+        run: mvn -T 1C clean package
+      - name: Build and Upload Docker Images
+        run: |
+          mvn -T 1C jib:build \
+          -pl preventime-platform \
+          -Djib.to.auth.username=${{ secrets.DOCKER_USER }} \
+          -Djib.to.auth.password="${{ secrets.DOCKER_PASS }}" \
+          -Djib.httpTimeout=120000

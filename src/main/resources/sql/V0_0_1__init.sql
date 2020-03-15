@@ -15,5 +15,5 @@ create table daily_answer(
 alter table daily_answer
     add constraint daily_answer_user_fk
         foreign key (app_user_id)
-            references daily_answer(id)
+            references app_user(id)
             on delete cascade;

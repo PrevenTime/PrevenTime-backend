@@ -12,3 +12,5 @@ generated sources (left click on the directory > mark Directory as > Generated s
 
 Before starting the app, start the database by running `docker-compose up`. After
 that you can start the app.
+
+You can find endpoints and examples in the insomnia project `preventime_insomnia.json`
